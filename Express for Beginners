@@ -29,6 +29,19 @@ router.get('/', function(req, res) {
    res.send(200); //Send HTTP Code
    res.render('index', {title: 'Muthu', age: 31}); //Looks for index.html file under views and pass the arguments to this
 });
+
+http://localhost:9000?age=3&name=Muthu
+router.get('/', function(req, res) {
+   console.log(req.query);
+   
+});
+
+http://localhost:9000/users/123
+router.get('/user/:id', function(req, res) {
+   console.log(req.params);
+   
+});
+
 module.exports = router; //Return value of the whole file is router
 
 //Error Handling
