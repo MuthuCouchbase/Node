@@ -6,5 +6,9 @@ npm config --global set prefix "C:\Users\${userId}\npm"
 npm config --global set cache "C:\Users\${userId}\npm-cache"
 Add C:\Users\${userId}\npm to your System's Path environment variable
 
-Create a express project "express test"
+Create a express project "express test" for scaffolding. cd test ; npm install;
+In order to replace jade templating, you can use "express test2 --hogan -c(css) less";npm install. This would include hjs and mess-middleware in package.json
+Run DEBUG=myapplication(Go to bin/www) ./bin/wwwhttp://localhost:3000
+
+Note: Express runs as web server itself, this loads whole application in memory, waits for requests and responds.
 
