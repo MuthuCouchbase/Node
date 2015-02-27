@@ -1,0 +1,10 @@
+You need to be a super user to do all this
+Install Node from http://nodejs.org/download/ which by default installs npm
+Install Express by "npm install -g express". By default, the npm modules get installed into C:\Users\${userId}\AppData\Roaming\npm\node_modules\express
+In order to change this, please create the below directories
+npm config --global set prefix "C:\Users\${userId}\npm"
+npm config --global set cache "C:\Users\${userId}\npm-cache"
+Add C:\Users\${userId}\npm to your System's Path environment variable
+
+Create a express project "express test"
+
