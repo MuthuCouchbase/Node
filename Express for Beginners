@@ -11,4 +11,21 @@ In order to replace jade templating, you can use "express test2 --hogan -c(css) 
 Run DEBUG=myapplication(Go to bin/www) ./bin/wwwhttp://localhost:3000
 
 Note: Express runs as web server itself, this loads whole application in memory, waits for requests and responds.
+Note2: Everytime, you make a change you need to restart node. Instead install nodemon "npm install -g nodemon" and then nodemon ./bin/www
+
+In app.js:
+app.set('views', path.join(__dirname, 'views')); //Setting the default views directory to views folder(index.html with hogan templating)
+app.set('view engine', 'hjs');
+
+//Telling your routes
+app.use('/', routes);
+app.use('/users', users);
+
+//Error Handling
+app.use(function(req, res, next) {
+   var err = new Error('Not Found');
+   err.status = 404;
+   next(err);
+});   
+
 
