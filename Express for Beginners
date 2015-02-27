@@ -18,8 +18,18 @@ app.set('views', path.join(__dirname, 'views')); //Setting the default views dir
 app.set('view engine', 'hjs');
 
 //Telling your routes
+var routes = require('./routes/index'); //Referring the return value from model.exports from index.js
 app.use('/', routes);
 app.use('/users', users);
+In index.js
+var express = require('express');
+var router = express.Router();
+router.get('/', function(req, res) {
+   res.send("Text"); //Send Plain Text
+   res.send(200); //Send HTTP Code
+   res.render('index', {title: 'Muthu', age: 31}); //Looks for index.html file under views and pass the arguments to this
+});
+module.exports = router; //Return value of the whole file is router
 
 //Error Handling
 app.use(function(req, res, next) {
