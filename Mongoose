@@ -1,0 +1,38 @@
+npm install -s mongoose (-s to install in the same package)
+nodemon app.js
+
+In app.js:
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://11.11.11.11/mongo');
+Creating a Mode
+mongoos.model('users', {name: String});
+
+app.get('/users', function(req, res) {
+   mongoose.model('users').find(function(err, users) {
+   res.send(users);
+   });
+});
+
+Ideally all of the above should go in a model
+/models/users.js
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var userSchema = new Schema( {
+   name: String
+});
+mongoose.model('users',userSchema);
+
+/models/posts.js
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var postSchema = new Schema( {
+   name: String,
+   user: Schema.ObjectId
+});
+mongoose.model('posts',posterSchema);
+
+//Requiring All modules
+var fs = require('fs');
+fs.readdirSync(__dirname+'/models/').forEach(function(filename) {
+   if (~filename.indexOf('.js')) require('__dirname'+'/models/'+filename);
+});
